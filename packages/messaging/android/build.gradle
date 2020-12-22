@@ -107,6 +107,7 @@ dependencies {
   api appProject
   implementation platform("com.google.firebase:firebase-bom:${ReactNative.ext.getVersion("firebase", "bom")}")
   implementation "com.google.firebase:firebase-messaging"
+  implementation "com.quantumgraph.sdk:QG:5.9.5"
 }
 
 ReactNative.shared.applyPackageVersion()
