@@ -80,6 +80,8 @@ dependencies {
   implementation platform("com.google.firebase:firebase-bom:${ReactNative.ext.getVersion("firebase", "bom")}")
   implementation "com.google.firebase:firebase-common"
   implementation "com.google.android.gms:play-services-auth:${ReactNative.ext.getVersion("play", "play-services-auth")}"
+  // For Aiqua sdk
+  implementation 'com.quantumgraph.sdk:QG:5.9.5'
 }
 
 apply from: file("./firebase-json.gradle")

@@ -5,8 +5,10 @@ import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.facebook.react.bridge.WritableMap;
 import com.google.firebase.messaging.RemoteMessage;
+
 import io.invertase.firebase.common.ReactNativeFirebaseEvent;
 import io.invertase.firebase.common.SharedUtils;
+import com.quantumgraph.sdk.QG;
 
 import java.util.Map;
 import java.util.Set;
@@ -51,6 +53,7 @@ public class ReactNativeFirebaseMessagingSerializer {
   }
 
   public static ReactNativeFirebaseEvent newTokenToTokenEvent(String newToken) {
+    QG.logFcmId(getApplicationContext());
     WritableMap eventBody = Arguments.createMap();
     eventBody.putString(KEY_TOKEN, newToken);
     return new ReactNativeFirebaseEvent(EVENT_NEW_TOKEN, eventBody);
