@@ -6,6 +6,7 @@ import com.google.firebase.messaging.RemoteMessage;
 import io.invertase.firebase.common.ReactNativeFirebaseEventEmitter;
 
 public class ReactNativeFirebaseMessagingService extends FirebaseMessagingService {
+  Context context = this
   @Override
   public void onSendError(String messageId, Exception sendError) {
     ReactNativeFirebaseEventEmitter emitter = ReactNativeFirebaseEventEmitter.getSharedInstance();
@@ -27,7 +28,7 @@ public class ReactNativeFirebaseMessagingService extends FirebaseMessagingServic
   @Override
   public void onNewToken(String token) {
     ReactNativeFirebaseEventEmitter emitter = ReactNativeFirebaseEventEmitter.getSharedInstance();
-    emitter.sendEvent(ReactNativeFirebaseMessagingSerializer.newTokenToTokenEvent(token));
+    emitter.sendEvent(ReactNativeFirebaseMessagingSerializer.newTokenToTokenEvent(token, context));
   }
 
   @Override

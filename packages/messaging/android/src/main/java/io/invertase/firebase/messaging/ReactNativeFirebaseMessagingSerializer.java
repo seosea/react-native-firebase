@@ -12,6 +12,7 @@ import com.quantumgraph.sdk.QG;
 
 import java.util.Map;
 import java.util.Set;
+import com.quantumgraph.sdk.QG;
 
 public class ReactNativeFirebaseMessagingSerializer {
   private static final String KEY_TOKEN = "token";
@@ -52,8 +53,8 @@ public class ReactNativeFirebaseMessagingSerializer {
     return new ReactNativeFirebaseEvent(openEvent ? EVENT_NOTIFICATION_OPENED : EVENT_MESSAGE_RECEIVED, remoteMessageToWritableMap(remoteMessage));
   }
 
-  public static ReactNativeFirebaseEvent newTokenToTokenEvent(String newToken) {
-    QG.logFcmId(getApplicationContext());
+  public static ReactNativeFirebaseEvent newTokenToTokenEvent(String newToken, Context context) {
+    QG.logFcmId(context);
     WritableMap eventBody = Arguments.createMap();
     eventBody.putString(KEY_TOKEN, newToken);
     return new ReactNativeFirebaseEvent(EVENT_NEW_TOKEN, eventBody);
